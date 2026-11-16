@@ -34,9 +34,17 @@
                     @csrf
                        <div class="flex flex-col gap-5">
                          <label for="">Name</label>
-                         <input type="text" name="name" >     
+                         <input type="text" name="name" >  
+                         @error('name')
+                         <p class="text-red-600"> {{ $message }} </p>   
+                         @enderror
+
                          <label for="">Description</label>
                          <input type="text" name="description" > 
+                        @error('description')
+                         <p class="text-red-600"> {{ $message }} </p>   
+                        @enderror
+
                          <label for="">Image</label>
                         <input type="file" name="image", id="" >
                         <div>

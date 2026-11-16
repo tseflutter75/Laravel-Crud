@@ -14,6 +14,13 @@ class PostController extends Controller
 
      public function ourfilestore(Request $request){
 
+       $validated = $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'image' => 'nullable',
+     
+        ]);
+
         $post = new Post;
         $post->name = $request->name;
         $post->description = $request->description;
@@ -21,6 +28,6 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Item successfully created!');
     }
 }
