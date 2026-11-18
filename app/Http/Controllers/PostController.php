@@ -21,10 +21,19 @@ class PostController extends Controller
      
         ]);
 
+        // upload image
+        $imageName = null;
+        if(isset($request->image)){
+             $imageName = time().'.'.$request->image->extension();
+             $request->image->move(public_path('images'), $imageName);
+        }
+        
+
+        // add post 
         $post = new Post;
         $post->name = $request->name;
         $post->description = $request->description;
-        $post->image = $request->image;
+        $post->image = $imageName;
 
         $post->save();
 
