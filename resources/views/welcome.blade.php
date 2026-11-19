@@ -14,6 +14,9 @@
             .container {
                 @apply px-10 mx-auto;
             }
+            .btn{
+                @apply bg-green-600 text-white rounded py-2 px-4
+            }
         }
     </style>
 
@@ -26,7 +29,7 @@
         <div class="flex justify-between my-5">
             <h2 class="text-red-500 text-xl">Home</h2>
 
-            <a href="/create" class="bg-green-600 text-white rounded py-2 px-4">
+            <a href="/create" class="btn">
                 Add New Post
             </a>
         </div>
@@ -72,8 +75,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-foreground"><img src="images/{{$post->image}}" width="80" alt=></td>
                                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                        <button type="button"
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg text-primary hover:text-primary-hover focus:outline-hidden focus:text-primary-focus disabled:opacity-50 disabled:pointer-events-none">Delete</button>
+                                       <a href="{{route('edit', $post->id)}}" class="btn">Edit</a>
                                     </td>
                                 </tr>
 
